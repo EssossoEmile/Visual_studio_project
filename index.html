@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Favorite Song</title>
+    <style>
+        body {
+            background-color: #f0f8ff; /* Light blue background */
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #333399;
+            margin-top: 20px;
+        }
+        #animated-box {
+            width: 100px;
+            height: 100px;
+            background-color: #ff6666;
+            margin: 40px auto;
+            position: relative;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Favorite Song!</h1>
+    
+    <!-- Embedded YouTube video -->
+    <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/x1XIJM6spaE" 
+        title="YouTube video player" frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+
+    <!-- Animated element -->
+    <div id="animated-box"></div>
+
+    <script>
+        // Simple JavaScript animation: move the box horizontally
+        let box = document.getElementById('animated-box');
+        let pos = 0;
+        let direction = 1;
+
+        function animateBox() {
+            pos += direction * 2;
+            box.style.left = pos + 'px';
+
+            if(pos > window.innerWidth - 120 || pos < 0) { // bounce
+                direction *= -1;
+            }
+            requestAnimationFrame(animateBox);
+        }
+
+        animateBox();
+    </script>
+</body>
+</html>
